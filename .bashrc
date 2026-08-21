@@ -23,7 +23,5 @@ source "$OMARCHY_PATH/default/bash/rc"
 # Added by Antigravity CLI installer
 export PATH="/home/saka/.local/bin:$PATH"
 
-. "$HOME/.local/share/../bin/env"
-
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dotfiles-lazygit='lazygit --work-tree=$HOME --git-dir=$HOME/.dotfiles'

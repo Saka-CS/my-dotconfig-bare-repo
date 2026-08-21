@@ -1,5 +1,5 @@
 [Default Applications]
-text/plain=nvim-term.desktop
+text/plain=nvim.desktop
 text/english=nvim.desktop
 text/x-makefile=nvim.desktop
 text/x-c++hdr=nvim.desktop
@@ -45,8 +45,6 @@ video/x-ogm+ogg=mpv.desktop
 video/x-theora+ogg=mpv.desktop
 application/ogg=mpv.desktop
 x-scheme-handler/mailto=HEY.desktop
-x-scheme-handler/slack=slack.desktop
-text/markdown=nvim-term.desktop
-text/x-markdown=nvim-term.desktop
 
 [Added Associations]
+application/octet-stream=imv.desktop;
