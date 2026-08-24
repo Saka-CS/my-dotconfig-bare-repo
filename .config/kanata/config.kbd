@@ -1,0 +1,72 @@
+;; Homerow mods + caps-lock navigation layer
+;; Concepts adapted from gerhard-h/kmonad-keymaps (Windows parts removed).
+;;
+;; - Home row: tap = letter, hold = modifier
+;;     a→Super  s→Alt   d→Ctrl  f→Shift
+;;     j→Shift  k→Ctrl  l→Alt   ;→Super
+;; - Caps Lock: tap = Esc, hold = navigation layer (hjkl arrows, uiop nav)
+;;
+;; Tuning:
+;;   - taps misfire while typing fast   -> raise $tap-timeout or $prior-idle
+;;   - modifiers activate too eagerly   -> lower $hold-timeout
+;;   - holding caps right after typing resolves as instant Esc (by design of
+;;     require-prior-idle); pause ~150 ms when you want the layer instead
+
+(defvar
+  tap-timeout  200 ;; ms: release faster than this = tap (letter)
+  hold-timeout 200 ;; ms: hold longer than this = modifier
+  prior-idle   150 ;; informational only: kanata does NOT expand variables in
+                   ;; defcfg, so the value below is hardcoded there too
+)
+
+(defcfg
+  ;; grab laptop + external keyboards by exact device name
+  ;; (names as shown in kanata's "registering" log lines; NOT a regex)
+  linux-dev-names-include (
+    "AT Translated Set 2 keyboard"
+    "BY Tech Gaming Keyboard"
+  )
+  linux-continue-if-no-devs-found yes
+  log-layer-changes no
+  process-unmapped-keys yes        ;; unlisted keys type unchanged but stay
+                                   ;; visible so held mods reach rolled keys
+  concurrent-tap-hold yes          ;; simultaneous holds time out in parallel
+  tap-hold-require-prior-idle 150  ;; key pressed <150ms after another key =
+                                   ;; instant TAP, never a modifier (anti-mistype)
+)
+
+(defsrc
+  caps
+  u    i    o    p
+  h    j    k    l    scln
+  a    s    d    f
+)
+
+(defalias
+  nav (layer-while-held nav)
+  cap (tap-hold $tap-timeout $hold-timeout esc @nav)
+
+  a    (tap-hold $tap-timeout $hold-timeout a    lmet)
+  s    (tap-hold $tap-timeout $hold-timeout s    lalt)
+  d    (tap-hold $tap-timeout $hold-timeout d    lctl)
+  f    (tap-hold $tap-timeout $hold-timeout f    lsft)
+  j    (tap-hold $tap-timeout $hold-timeout j    rsft)
+  k    (tap-hold $tap-timeout $hold-timeout k    rctl)
+  l    (tap-hold $tap-timeout $hold-timeout l    ralt)
+  scln (tap-hold $tap-timeout $hold-timeout scln rmet)
+)
+
+(deflayer base
+  @cap
+  u    i    o    p
+  h    @j   @k   @l   @scln
+  @a   @s   @d   @f
+)
+
+(deflayer nav
+  XX
+  home pgup pgdn end
+  left down up   rght
+  _
+  _    _    _    _
+)
