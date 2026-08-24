@@ -1,6 +1,6 @@
 [![Ceasefire Now](https://badge.techforpalestine.org/default)](https://techforpalestine.org/learn-more)
 
-# My Dotconfig Bare Repo
+# My Dotfiles Bare Repo
 
 
 I store my dotfiles in this repo. It is public so I could access it on new machines but feel free to explore or make a similar setup with my commands. I only added the lazygit alias over the [Arch wiki guide](https://wiki.archlinux.org/title/Dotfiles). Run the reset --mixed HEAD in case I need to override existing settings.
@@ -31,4 +31,5 @@ These are the folders I am racking. A bare repo can't check for new files, only 
 dotfiles add ~/.config/hypr/
 dotfiles add ~/.config/nvim/
 dotfiles add ~/.config/fontconfig/
+dotfiles add ~/.config/kanata
 ```
