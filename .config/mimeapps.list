@@ -51,4 +51,3 @@ x-scheme-handler/slack=slack.desktop
 
 [Added Associations]
 application/octet-stream=imv.desktop;
-x-scheme-handler/slack=slack.desktop;

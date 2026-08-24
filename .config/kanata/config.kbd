@@ -40,11 +40,13 @@
   u    i    o    p
   h    j    k    l    scln
   a    s    d    f
+  spc
 )
 
 (defalias
   nav (layer-while-held nav)
-  cap (tap-hold $tap-timeout $hold-timeout esc @nav)
+  capnav (tap-hold $tap-timeout $hold-timeout esc @nav)
+  spcnav (tap-hold $tap-timeout $hold-timeout spc @nav)
 
   a    (tap-hold $tap-timeout $hold-timeout a    lmet)
   s    (tap-hold $tap-timeout $hold-timeout s    lalt)
@@ -57,10 +59,11 @@
 )
 
 (deflayer base
-  @cap
+  @capnav
   u    i    o    p
   h    @j   @k   @l   @scln
   @a   @s   @d   @f
+  @spcnav
 )
 
 (deflayer nav
@@ -69,4 +72,5 @@
   left down up   rght
   _
   _    _    _    _
+  XX
 )
