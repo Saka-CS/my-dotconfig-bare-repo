@@ -31,5 +31,6 @@ These are the folders I am racking. A bare repo can't check for new files, only 
 dotfiles add ~/.config/hypr/
 dotfiles add ~/.config/nvim/
 dotfiles add ~/.config/fontconfig/
-dotfiles add ~/.config/kanata
+dotfiles add ~/.config/kanata/
+dotfiles add ~/.config/cspell/
 ```
