@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": [
+    "python-common",
+    "docker",
+    "git",
+    "sql",
+    "lua",
+    "softwareTerms",
+    "software-tools",
+    "computing-acronyms",
+    "coding-compound-terms",
+    "web-services",
+    "networking-terms",
+    "companies",
+    "custom-odoo"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-odoo",
+      "path": "/home/saka/.config/cspell/custom-odoo.txt",
+      "addWords": true
+    }
+  ]
+}

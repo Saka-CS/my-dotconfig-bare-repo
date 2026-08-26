@@ -5,5 +5,4 @@ require("config.remote_clipboard").setup()
 vim.opt.relativenumber = false
 vim.g.autoformat = true
 
-vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }

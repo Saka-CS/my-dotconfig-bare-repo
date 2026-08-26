@@ -1,0 +1,165 @@
+onchange
+depends
+api model
+api depends
+api onchange
+odoo
+openerp
+pricelist
+pickings
+quotation
+invoicing
+journal entry
+chart of accounts
+account move
+stock picking
+sale order
+purchase order
+pos order
+res partner
+res users
+res company
+res config settings
+ir model
+ir attachment
+ir ui view
+ir model data
+ir module
+ir property
+ir default
+ir sequence
+ir cron
+ir rule
+ir actions
+ir config parameter
+ir translation
+mail thread
+mail message
+workflow
+automated action
+server action
+computed field
+related field
+selection field
+one2many
+many2one
+many2many
+many2one reference
+external id
+xml id
+demo data
+data file
+manifest
+__ manifest__
+__ init__
+fields char
+fields text
+fields integer
+fields float
+fields boolean
+fields date
+fields datetime
+fields binary
+fields html
+fields selection
+fields json
+monetary
+company dependent
+translate
+groups view
+form view
+tree view
+kanban view
+pivot view
+graph view
+search view
+calendar view
+activity view
+list view
+dashboard view
+qweb
+owl
+xmlrpc
+jsonrpc
+web controller
+http route
+ir asset
+constrains
+depends context
+model create multi
+ondelete
+returns
+recordset
+ensure one
+sudo
+with context
+with company
+with user
+browse
+search read
+filtered
+sorted
+mapped
+exists
+default get
+fields get
+name search
+name get
+fiscal position
+tax report
+bank statement
+payment term
+analytic account
+analytic plan
+account tag
+account group
+account move line
+account journal
+account tax
+warehouse
+location
+route
+push rule
+pull rule
+procurement group
+stock rule
+stock quant
+stock move
+stock move line
+picking type
+putaway rule
+removal strategy
+reordering rule
+replenishment
+serial number
+packaging
+scrap
+inventory adjustment
+cycle count
+landed cost
+quotation template
+payment provider
+payment transaction
+sale order line
+crm lead
+crm stage
+mrp production
+mrp bom
+work center
+work order
+quality check
+quality alert
+plm eco
+record rule
+access rule
+access rights
+constraints
+compute
+inverse
+search domain
+readonly
+required
+states
+active test
+lot
+package
