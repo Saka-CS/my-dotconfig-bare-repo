@@ -33,4 +33,5 @@ dotfiles add ~/.config/nvim/
 dotfiles add ~/.config/fontconfig/
 dotfiles add ~/.config/kanata/
 dotfiles add ~/.config/cspell/
+dotfiles add ~/.config/ghosttly/
 ```
