@@ -2,7 +2,9 @@
   "extras": [
     "lazyvim.plugins.extras.editor.neo-tree",
     "lazyvim.plugins.extras.lang.python",
-    "lazyvim.plugins.extras.dap.core"
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.lang.sql",
+    "lazyvim.plugins.extras.test.core"
   ],
   "install_version": 8,
   "news": {

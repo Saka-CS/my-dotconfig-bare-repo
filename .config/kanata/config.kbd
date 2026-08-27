@@ -13,7 +13,7 @@
 
 (deftemplate homerowmod (char mod)
   (switch
-    ((key-timing 3 less-than 250)) $char break
+    ((key-timing 3 less-than 200)) $char break
     () (tap-hold-release 0 200 $char $mod) break
   )
 )
@@ -30,9 +30,9 @@
 
 (defsrc
   caps
-  q w e r t y u i o p
+  u i o p
   h j k l scln
-  a s d f g
+  a s d f
   spc
 )
 
