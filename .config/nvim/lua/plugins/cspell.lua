@@ -33,11 +33,13 @@ return {
             "yaml.gitlab",
             "yaml.helm-values",
           },
-          settings = {
-            cspell = {
-              configFilePaths = { vim.fn.expand("~/.config/cspell/cspell.json") },
-            },
-          },
+          root_dir = function(bufnr, on_dir)
+            local root = LazyVim.root({ buf = bufnr }) or vim.uv.cwd()
+            if on_dir then
+              on_dir(root)
+            end
+            return root
+          end,
         },
       },
     },
