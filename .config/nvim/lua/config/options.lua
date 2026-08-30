@@ -2,7 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 require("config.remote_clipboard").setup()
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.g.autoformat = true
 
 vim.opt.spelllang = { "en_us" }
