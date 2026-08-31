@@ -1,0 +1,17 @@
+-- return {
+--   "neovim/nvim-lspconfig",
+--   opts = {
+--     servers = {
+--       ['*'] = {
+--         keys = {
+--           -- Add or change a keymap
+--           { "K", vim.lsp.buf.hover, desc = "Hover" },
+--           -- Disable a keymap
+--           { "gd", false },
+--           -- Capability-based keymap (only set if server supports it)
+--           { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", has = "codeAction" },
+--         },
+--       },
+--     },
+--   },
+-- }
