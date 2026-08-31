@@ -26,6 +26,7 @@
   linux-continue-if-no-devs-found yes
   log-layer-changes no
   process-unmapped-keys yes
+  concurrent-tap-hold yes
 )
 
 (defsrc
@@ -38,7 +39,9 @@
 
 (defalias
   nav (layer-while-held nav)
-  capnav (tap-hold 200 200 esc @nav)
+  passLayer (layer-switch pass-through)
+  baseLayer (layer-switch base)
+  ;; capnav (tap-hold 200 200 esc @nav)
   spcnav (tap-hold 200 200 spc @nav)
 
   a    (t! homerowmod a lmet)
@@ -51,8 +54,13 @@
   scln (t! homerowmod scln rmet)
 )
 
+(defchordsv2
+  (esc 1)   @baseLayer    100   first-release ()
+  (esc 2)   @passLayer    100   first-release ()
+)
+
 (deflayer base
-  @capnav
+  esc
   u    i    o    p
   h    @j   @k   @l   @scln
   @a   @s   @d   @f
@@ -62,8 +70,15 @@
 (deflayer nav
   XX
   home pgup pgdn end
-  left down up   rght
-  _
+  left down up   rght   _
   _    _    _    _
   XX
+)
+
+(deflayer pass-through
+  -
+  -   -   -   -
+  -   -   -   -   -
+  -   -   -   -
+  -
 )
