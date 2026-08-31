@@ -13,7 +13,7 @@
 
 (deftemplate homerowmod (char mod)
   (switch
-    ((key-timing 3 less-than 200)) $char break
+    ((key-timing 3 less-than 150)) $char break
     () (tap-hold-release 0 200 $char $mod) break
   )
 )
