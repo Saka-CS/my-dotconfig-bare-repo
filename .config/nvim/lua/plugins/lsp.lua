@@ -69,24 +69,25 @@ return {
 
       lua_ls = {
         settings = {
-        --   Lua = {
-        --     workspace = { checkThirdParty = false },
-        --     telemetry = { enable = false },
-        --   },
-        -- },
+          --   Lua = {
+          --     workspace = { checkThirdParty = false },
+          --     telemetry = { enable = false },
+          --   },
+          -- },
+        },
       },
-    },
+      codebook = {}
 
-    -- 4. Server Setup Hooks & Capability Tweaks
-    -- setup = {
-    --   ruff = function()
-    --     -- Disable hover provider in Ruff so Pyright's richer docstrings/signatures take precedence
-    --     LazyVim.lsp.on_attach(function(client, _)
-    --       if client.name == "ruff" then
-    --         client.server_capabilities.hoverProvider = false
-    --       end
-    --     end)
-    --   end,
+      -- 4. Server Setup Hooks & Capability Tweaks
+      -- setup = {
+      --   ruff = function()
+      --     -- Disable hover provider in Ruff so Pyright's richer docstrings/signatures take precedence
+      --     LazyVim.lsp.on_attach(function(client, _)
+      --       if client.name == "ruff" then
+      --         client.server_capabilities.hoverProvider = false
+      --       end
+      --     end)
+      --   end,
     },
   },
 }
