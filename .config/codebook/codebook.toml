@@ -1,4 +1,6 @@
 words = [
+    "esc",
+    "gitcommit",
     "neovim",
     "prettierd",
     "rustfmt",

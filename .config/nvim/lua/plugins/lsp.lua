@@ -76,7 +76,32 @@ return {
           -- },
         },
       },
-      codebook = {}
+      codebook = {
+        filetypes = {
+          'c',
+          'css',
+          'gitcommit',
+          'go',
+          'haskell',
+          'html',
+          'java',
+          'javascript',
+          'javascriptreact',
+          'lua',
+          'markdown',
+          'php',
+          'python',
+          'ruby',
+          'rust',
+          'swift',
+          'toml',
+          'text',
+          'typescript',
+          'typescriptreact',
+          'zig',
+          'xml'
+        },
+      }
 
       -- 4. Server Setup Hooks & Capability Tweaks
       -- setup = {
