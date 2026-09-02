@@ -2,6 +2,7 @@ words = [
     "neovim",
     "prettierd",
     "rustfmt",
+    "saka",
     "stylua",
     "xmlformat",
 ]
