@@ -1,11 +1,14 @@
 words = [
-    "attf",
+    "csvview",
     "esc",
     "gitcommit",
+    "keymaps",
     "neovim",
+    "odoo",
     "prettierd",
     "rustfmt",
     "saka",
     "stylua",
+    "textobject",
     "xmlformat",
 ]
