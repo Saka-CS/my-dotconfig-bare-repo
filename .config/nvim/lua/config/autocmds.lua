@@ -21,3 +21,44 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
   desc = 'LSP: Disable hover capability from Ruff',
 })
+
+-- Auto-open PDFs externally instead of showing binary + broken gx
+vim.api.nvim_create_autocmd("BufReadCmd", {
+  group = vim.api.nvim_create_augroup("pdf_external_open", { clear = true }),
+  pattern = { "*.pdf", "*.PDF" },
+  callback = function(args)
+    -- Escape hatch: PDF_EDIT=1 nvim file.pdf to inspect binary
+    if vim.env.PDF_EDIT == "1" then
+      return
+    end
+
+    local path = vim.fn.fnamemodify(args.file, ":p")
+
+    if path == "" or vim.fn.filereadable(path) == 0 then
+      vim.schedule(function()
+        vim.notify("PDF not readable: " .. args.file, vim.log.levels.ERROR)
+        pcall(vim.api.nvim_buf_delete, args.buf, { force = true })
+      end)
+      return
+    end
+
+    -- Non-blocking external open (Evince per your mimeapps.list)
+    local ok, err = pcall(vim.ui.open, path)
+    if not ok then
+      vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+      vim.schedule(function()
+        vim.notify("vim.ui.open failed, tried xdg-open: " .. tostring(err), vim.log.levels.WARN)
+      end)
+    else
+      vim.schedule(function()
+        vim.notify("Opened PDF externally:\n" .. path, vim.log.levels.INFO)
+      end)
+    end
+
+    -- Prevent binary buffer; schedule so BufReadCmd can finish
+    vim.schedule(function()
+      pcall(vim.api.nvim_buf_delete, args.buf, { force = true })
+    end)
+  end,
+  desc = "Open PDFs in Evince/xdg-open instead of buffer",
+})

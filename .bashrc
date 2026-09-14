@@ -19,7 +19,6 @@ source "$OMARCHY_PATH/default/bash/rc"
 # Make an alias for invoking commands you use constantly
 # alias p='python'
 
-
 # Added by Antigravity CLI installer
 export PATH="/home/saka/.local/bin:$PATH"
 

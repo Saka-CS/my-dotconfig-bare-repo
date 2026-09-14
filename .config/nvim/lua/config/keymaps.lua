@@ -13,3 +13,12 @@ vim.keymap.set({ "n", "x" }, "<leader>cf", function()
     LazyVim.format({ force = true }) -- unchanged for all other filetypes
   end
 end, { desc = "Format" })
+
+vim.keymap.set("n", "<leader>xo", function()
+  local path = vim.fn.expand("%:p")
+  if path == "" then
+    vim.notify("No file in current buffer", vim.log.levels.WARN)
+    return
+  end
+  vim.ui.open(path)
+end, { desc = "Open current file externally" })
