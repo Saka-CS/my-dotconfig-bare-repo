@@ -99,7 +99,8 @@ return {
           'typescript',
           'typescriptreact',
           'zig',
-          'xml'
+          'xml',
+          'yaml'
         },
       }
 

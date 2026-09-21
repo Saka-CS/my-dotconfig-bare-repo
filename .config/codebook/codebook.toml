@@ -1,10 +1,12 @@
 words = [
     "attf",
     "csvview",
+    "engineeringresumes",
     "esc",
     "gitcommit",
     "keymaps",
     "neovim",
+    "noupdate",
     "odoo",
     "prettierd",
     "qweb",
@@ -13,5 +15,7 @@ words = [
     "stylua",
     "textobject",
     "tmpl",
+    "underprepared",
+    "uom",
     "xmlformat",
 ]

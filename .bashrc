@@ -29,3 +29,6 @@ alias dotfiles-lazygit='lazygit --work-tree=$HOME --git-dir=$HOME/.dotfiles'
 alias yolo='agy --dangerously-skip-permissions'
 
 . "$HOME/.local/share/../bin/env"
+
+# opencode
+export PATH=/home/saka/.opencode/bin:$PATH
