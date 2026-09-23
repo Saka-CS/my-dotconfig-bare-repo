@@ -76,6 +76,7 @@ return {
           -- },
         },
       },
+
       codebook = {
         filetypes = {
           'c',
@@ -102,7 +103,7 @@ return {
           'xml',
           'yaml'
         },
-      }
+      },
 
       -- 4. Server Setup Hooks & Capability Tweaks
       -- setup = {
