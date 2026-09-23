@@ -9,9 +9,9 @@ permissions:
   - action: write
     resource: "*"
     effect: deny
-  - action: shell
-    resource: "*"
-    effect: deny
+  # - action: shell
+  #   resource: "*"
+  #   effect: deny
   - action: subagent
     resource: "*"
     effect: deny
