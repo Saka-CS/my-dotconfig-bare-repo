@@ -32,3 +32,5 @@ alias yolo='agy --dangerously-skip-permissions'
 
 # opencode
 export PATH=/home/saka/.opencode/bin:$PATH
+
+export PATH="$HOME/fvm/default/bin:$PATH"

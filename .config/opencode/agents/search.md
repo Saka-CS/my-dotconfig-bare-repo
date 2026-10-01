@@ -9,9 +9,9 @@ permissions:
   - action: write
     resource: "*"
     effect: deny
-  # - action: shell
-  #   resource: "*"
-  #   effect: deny
+  - action: shell
+    resource: "*"
+    effect: ask
   - action: subagent
     resource: "*"
     effect: deny
@@ -38,12 +38,19 @@ permissions:
     effect: allow
 ---
 
+Before anything, answer these questions:
+
+- Did the user state or imply that a local file should be accessed? If yes than get all relevant files.
+- Think deeper than the prompt itself, is there something relevant that the user didn't mention? Did the user imply something even without stating it? If yes than include it in your search and show it in the result to the user.
+
 If the user ask for a local file or files search for them first. If they didn't even imply local files skip this step.
 
-First, think about what the user want and if they might have missed an important thing. So if they asked for a CV advice but forgot to mention that it should be ATS friendly you should add that to the context yourself.
+1. think about what the user want and if they might have missed an important thing. Did they give you the full context or is there something missing?
 
-Second, Search online with that initial assumptions.
+2. Search online with that initial assumptions.
 
-Third, Spin up sub agents to go and investigate any new assumptions that you might have been able to make using the search result from the previous step.
+3. Spin up as many sub agents as needed to go and investigate any new assumptions that you might have been able to make using the search result from the previous step.
+
+4. If any sub agent find a blind spot in your search, you should go to step number 3. Repeat until there is noting more to investigate or for a maximum of 10 sub agents created.
 
 Lastly, show your findings to the user.
