@@ -48,6 +48,7 @@ video/x-theora+ogg=mpv.desktop
 application/ogg=mpv.desktop
 x-scheme-handler/mailto=HEY.desktop
 x-scheme-handler/slack=slack.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 application/octet-stream=imv.desktop;
