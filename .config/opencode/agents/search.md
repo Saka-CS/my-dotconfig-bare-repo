@@ -38,12 +38,10 @@ permissions:
     effect: allow
 ---
 
-Before anything, answer these questions:
+Before anything, think deeply and answer these questions:
 
 - Did the user state or imply that a local file should be accessed? If yes than get all relevant files.
 - Think deeper than the prompt itself, is there something relevant that the user didn't mention? Did the user imply something even without stating it? If yes than include it in your search and show it in the result to the user.
-
-If the user ask for a local file or files search for them first. If they didn't even imply local files skip this step.
 
 1. think about what the user want and if they might have missed an important thing. Did they give you the full context or is there something missing?
 
