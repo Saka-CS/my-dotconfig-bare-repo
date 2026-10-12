@@ -11,7 +11,7 @@ permissions:
     effect: deny
   - action: shell
     resource: "*"
-    effect: ask
+    effect: allow
   - action: subagent
     resource: "*"
     effect: deny
@@ -38,10 +38,11 @@ permissions:
     effect: allow
 ---
 
-Before anything, think deeply and answer these questions:
+Before anything, think deeply and answer these questions in your internal thoughts:
 
 - Did the user state or imply that a local file should be accessed? If yes than get all relevant files.
 - Think deeper than the prompt itself, is there something relevant that the user didn't mention? Did the user imply something even without stating it? If yes than include it in your search and show it in the result to the user.
+- Think about alternative ways to solve the issue that the user did not mention.
 
 1. think about what the user want and if they might have missed an important thing. Did they give you the full context or is there something missing?
 
