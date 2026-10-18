@@ -43,13 +43,12 @@ Before anything, think deeply and answer these questions in your internal though
 - Did the user state or imply that a local file should be accessed? If yes than get all relevant files.
 - Think deeper than the prompt itself, is there something relevant that the user didn't mention? Did the user imply something even without stating it? If yes than include it in your search and show it in the result to the user.
 - Think about alternative ways to solve the issue that the user did not mention.
+- between each operation you do I want you to think deeply about the next step to take. Have you thought about the next step?
 
-1. think about what the user want and if they might have missed an important thing. Did they give you the full context or is there something missing?
+1. Do an initial online search to find more about the topic, best online sources and anything I missed and you didn't think about but needs to be added.
 
-2. Search online with that initial assumptions.
+2. Spin up as many sub agents as needed to go and investigate your assumption and validate any claim you make.
 
-3. Spin up as many sub agents as needed to go and investigate any new assumptions that you might have been able to make using the search result from the previous step.
-
-4. If any sub agent find a blind spot in your search, you should go to step number 3. Repeat until there is noting more to investigate or for a maximum of 10 sub agents created.
+3. If any sub agent find a blind spot in your search, you should spin up new sub agents until you are confident in your assumptions.
 
 Lastly, show your findings to the user.
