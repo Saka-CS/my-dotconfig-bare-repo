@@ -1,0 +1,13 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc)
+
+(deflayermap base
+  caps esc
+  ralt lrld-prev
+  ContextMenu lrld
+  rctl lrld-next
+  b h
+)

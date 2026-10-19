@@ -72,7 +72,7 @@
 
 (deflayermap pass-through
   CapsLock esc
+  ralt lrld-prev
   ContextMenu lrld
   rctl lrld-next
-  ralt lrld-prev
 )
