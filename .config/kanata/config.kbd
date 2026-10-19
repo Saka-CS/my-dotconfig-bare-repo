@@ -1,15 +1,11 @@
-;; Homerow mods + caps-lock navigation layer
-;; Uses key-timing to skip home row mods while fast typing.
-;; Adapted from discussion #1455 and #1656 in the kanata community.
-;;
-;; - Home row: tap = letter, hold = modifier (skipped during fast typing)
-;;     a→Super  s→Alt   d→Ctrl  f→Shift
-;;     j→Shift  k→Ctrl  l→Alt   ;→Super
-;; - Caps Lock: tap = Esc, hold = navigation layer (hjkl arrows, uiop nav)
-;;
-;; Tuning:
-;;   - modifiers too slow to activate    -> lower the 250 in key-timing
-;;   - modifiers misfire during typing   -> raise the 250 in key-timing
+;; Kanata docs
+;; https://github.com/jtroo/kanata/blob/main/docs/config.adoc
+
+;; Key code mappings
+;; https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
+
+;; Online key to key code
+;; https://www.toptal.com/developers/keycode
 
 (deftemplate homerowmod (char mod)
   (switch
@@ -41,7 +37,6 @@
   nav (layer-while-held nav)
   passLayer (layer-switch pass-through)
   baseLayer (layer-switch base)
-  ;; capnav (tap-hold 200 200 esc @nav)
   spcnav (tap-hold 200 200 spc @nav)
 
   a    (t! homerowmod a lmet)
@@ -75,10 +70,9 @@
   XX
 )
 
-(deflayer pass-through
-  esc
-  _   _   _   _ 
-  _   _   _   _   _
-  _   _   _   _
-  _
+(deflayermap pass-through
+  CapsLock esc
+  ContextMenu lrld
+  rctl lrld-next
+  ralt lrld-prev
 )
