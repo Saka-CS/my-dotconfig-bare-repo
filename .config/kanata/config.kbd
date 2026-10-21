@@ -4,8 +4,11 @@
 ;; Key code mappings
 ;; https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
 
-;; Online key to key code
+;; Online Keyboard key into key code
 ;; https://www.toptal.com/developers/keycode
+
+;; Online keyboard timing test
+;; https://developer.mozilla.org/en-US/play?id=hGktx4JrcvXgr4aNTMJ0WIA1Ned0EwTN7WU2pDMfsf3PWPdfyo%2Fe2zugta9gfd5U7jC10soQWLNQZdSr
 
 (deftemplate homerowmod (char mod)
   (switch
