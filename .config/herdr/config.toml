@@ -95,3 +95,11 @@ tab_bar_right = [{ type = "zoom" }, { type = "hostname" }]
 # the basename of the pane cwd. This is what Hyprland shows in the group bar,
 # and it resolves on the server so remote sessions name the remote host.
 window_title = "{hostname}: {workspace}"
+
+# No popup or desktop notification when background agents finish or need input
+[ui.toast]
+delivery = "off"
+
+# No chime when background agents finish or need input
+[ui.sound]
+enabled = false
