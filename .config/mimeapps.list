@@ -1,5 +1,5 @@
 [Default Applications]
-text/markdown=nvim-term.desktop
+text/markdown=omawrite.desktop
 text/x-markdown=nvim-term.desktop
 text/plain=nvim.desktop
 text/english=nvim.desktop
@@ -50,7 +50,10 @@ x-scheme-handler/mailto=HEY.desktop
 x-scheme-handler/slack=slack.desktop
 x-scheme-handler/postman=Postman.desktop
 application/zip=org.gnome.Nautilus.desktop
+image/svg+xml=imv-dir.desktop
 
 [Added Associations]
 application/octet-stream=imv.desktop;
 application/zip=org.gnome.Nautilus.desktop;
+image/svg+xml=imv-dir.desktop;
+text/markdown=omawrite.desktop;
