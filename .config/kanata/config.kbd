@@ -56,10 +56,6 @@
   scln (t! homerowmod scln rmet)
 )
 
-(defvar
-  chord-timeout 35
-)
-
 (defchordsv2
   (esc  1)   @baseLayer    $chord-timeout   all-released   ()
   (esc  2)   @passLayer    $chord-timeout   all-released   ()
