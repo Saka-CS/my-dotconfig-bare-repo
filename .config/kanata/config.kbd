@@ -28,6 +28,10 @@
   concurrent-tap-hold yes
 )
 
+(defvar
+  chord-timeout 35
+)
+
 (defsrc
   caps
   u i o p
@@ -53,8 +57,21 @@
 )
 
 (defchordsv2
-  (esc 1)   @baseLayer    100   first-release ()
-  (esc 2)   @passLayer    100   first-release ()
+  (esc  1)   @baseLayer    $chord-timeout   all-released   ()
+  (esc  2)   @passLayer    $chord-timeout   all-released   ()
+
+
+  (esc  ralt)   lrld-prev   $chord-timeout    all-released    ()
+  (esc  menu)   lrld        $chord-timeout    all-released    ()
+  (esc  rctl)   lrld-next   $chord-timeout    all-released    ()
+
+  (w    e)    bspc    $chord-timeout    all-released    ()
+  (e    r)    ent     $chord-timeout    all-released    ()
+  (c    v)    tab     $chord-timeout    all-released    ()
+
+  (u    i)    ent     $chord-timeout    all-released    ()
+  (i    o)    bspc    $chord-timeout    all-released    ()
+  (n    m)    tab     $chord-timeout    all-released    ()
 )
 
 (deflayer base
@@ -75,7 +92,4 @@
 
 (deflayermap pass-through
   CapsLock esc
-  ralt lrld-prev
-  ContextMenu lrld
-  rctl lrld-next
 )
