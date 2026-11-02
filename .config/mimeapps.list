@@ -51,6 +51,7 @@ x-scheme-handler/slack=slack.desktop
 x-scheme-handler/postman=Postman.desktop
 application/zip=org.gnome.Nautilus.desktop
 image/svg+xml=imv-dir.desktop
+x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
 
 [Added Associations]
 application/octet-stream=imv.desktop;

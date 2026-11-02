@@ -68,10 +68,12 @@
   (w    e)    bspc    $chord-timeout    all-released    ()
   (e    r)    ent     $chord-timeout    all-released    ()
   (c    v)    tab     $chord-timeout    all-released    ()
+  (x    c)    del     $chord-timeout    all-released    ()
 
   (u    i)    ent     $chord-timeout    all-released    ()
   (i    o)    bspc    $chord-timeout    all-released    ()
   (n    m)    tab     $chord-timeout    all-released    ()
+  (m    ,)    del     $chord-timeout    all-released    ()
 )
 
 (deflayer base
