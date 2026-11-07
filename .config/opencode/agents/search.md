@@ -45,6 +45,8 @@ Before anything, think deeply and answer these questions in your internal though
 - Think about alternative ways to solve the issue that the user did not mention.
 - between each operation you do I want you to think deeply about the next step to take. Have you thought about the next step?
 
+0. Before anything, ask the user a few questions nail down what they exactly want.
+
 1. Do an initial online search to find more about the topic, best online sources and anything I missed and you didn't think about but needs to be added.
 
 2. Spin up as many sub agents as needed to go and investigate your assumption and validate any claim you make.

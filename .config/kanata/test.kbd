@@ -1,13 +1,31 @@
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold yes
 )
 
 (defsrc)
 
 (deflayermap base
   caps esc
-  ralt lrld-prev
-  ContextMenu lrld
-  rctl lrld-next
   b h
+)
+
+(defvar
+  chord-timeout 40
+)
+
+(defchordsv2
+  (esc  ralt)   lrld-prev   $chord-timeout    all-released    ()
+  (esc  menu)   lrld        $chord-timeout    all-released    ()
+  (esc  rctl)   lrld-next   $chord-timeout    all-released    ()
+
+  (w    e)    bspc    $chord-timeout    all-released    ()
+  (e    r)    ent     $chord-timeout    all-released    ()
+  (c    v)    tab     $chord-timeout    all-released    ()
+  (x    c)    del     $chord-timeout    all-released    ()
+
+  (u    i)    ent     $chord-timeout    all-released    ()
+  (i    o)    bspc    $chord-timeout    all-released    ()
+  (n    m)    tab     $chord-timeout    all-released    ()
+  (m    ,)    del     $chord-timeout    all-released    ()
 )

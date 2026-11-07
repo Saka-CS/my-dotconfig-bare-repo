@@ -4,18 +4,27 @@
 ;; Key code mappings
 ;; https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
 
-;; Online Keyboard key into key code
+;; Online Keyboard key press into key code
 ;; https://www.toptal.com/developers/keycode
 
 ;; Online keyboard timing test
 ;; https://developer.mozilla.org/en-US/play?id=hGktx4JrcvXgr4aNTMJ0WIA1Ned0EwTN7WU2pDMfsf3PWPdfyo%2Fe2zugta9gfd5U7jC10soQWLNQZdSr
 
 (deftemplate homerowmod (char mod)
-  (switch
-    ((key-timing 3 less-than 150)) $char break
-    () (tap-hold-release 0 200 $char $mod) break
-  )
+  (tap-hold-release 0 150 $char $mod  (require-prior-idle 120))
 )
+
+(deftemplate v- (key)
+  (defvirtualkeys (concat v- $key) $key)
+  (defalias (concat v- $key)
+    (multi (on-press press-vkey (concat v- $key))
+           (on-release release-vkey (concat v- $key))))
+)
+
+(t! v- bspc)
+(t! v- ent)
+(t! v- tab)
+(t! v- del)
 
 (defcfg
   linux-dev-names-include (
@@ -30,7 +39,7 @@
 )
 
 (defvar
-  chord-timeout 35
+  chord-timeout 40
 )
 
 (defsrc
@@ -62,19 +71,19 @@
   (esc  2)   @passLayer    $chord-timeout   all-released   ()
 
 
-  (esc  ralt)   lrld-prev   $chord-timeout    all-released    ()
-  (esc  menu)   lrld        $chord-timeout    all-released    ()
-  (esc  rctl)   lrld-next   $chord-timeout    all-released    ()
+  (esc          ralt)   lrld-prev   $chord-timeout    all-released    ()
+  (esc   nonusbslash)   lrld        $chord-timeout    all-released    ()
+  (esc          rctl)   lrld-next   $chord-timeout    all-released    ()
 
-  (w    e)    bspc    $chord-timeout    all-released    ()
-  (e    r)    ent     $chord-timeout    all-released    ()
-  (c    v)    tab     $chord-timeout    all-released    ()
-  (x    c)    del     $chord-timeout    all-released    ()
+  (w    e)    @v-bspc    $chord-timeout    all-released    ()
+  (e    r)    @v-ent     $chord-timeout    all-released    ()
+  (c    v)    @v-tab     $chord-timeout    all-released    ()
+  (x    c)    @v-del     $chord-timeout    all-released    ()
 
-  (u    i)    ent     $chord-timeout    all-released    ()
-  (i    o)    bspc    $chord-timeout    all-released    ()
-  (n    m)    tab     $chord-timeout    all-released    ()
-  (m    ,)    del     $chord-timeout    all-released    ()
+  (u    i)    @v-ent     $chord-timeout    all-released    ()
+  (i    o)    @v-bspc    $chord-timeout    all-released    ()
+  (n    m)    @v-tab     $chord-timeout    all-released    ()
+  (m    ,)    @v-del     $chord-timeout    all-released    ()
 )
 
 (deflayer base
