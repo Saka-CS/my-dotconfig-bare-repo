@@ -21,6 +21,7 @@
   linux-dev-names-include (
     "AT Translated Set 2 keyboard"
     "BY Tech Gaming Keyboard"
+    "Fnatic Gear Fnatic Gear STREAK60 Keyboard"
   )
   linux-continue-if-no-devs-found yes
   log-layer-changes no
