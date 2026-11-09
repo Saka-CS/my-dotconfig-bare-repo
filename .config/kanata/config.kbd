@@ -1,3 +1,4 @@
+
 ;; Kanata docs
 ;; https://github.com/jtroo/kanata/blob/main/docs/config.adoc
 
@@ -30,7 +31,7 @@
   linux-dev-names-include (
     "AT Translated Set 2 keyboard"
     "BY Tech Gaming Keyboard"
-    "Fnatic Gear Fnatic Gear STREAK60 Keyboard"
+    "Fnatic Gear Fnatic Gear STREAK65 Keyboard"
   )
   linux-continue-if-no-devs-found yes
   log-layer-changes no
@@ -42,19 +43,14 @@
   chord-timeout 40
 )
 
-(defsrc
-  caps
-  u i o p
-  h j k l scln
-  a s d f
-  spc
-)
-
 (defalias
-  nav (layer-while-held nav)
-  passLayer (layer-switch pass-through)
-  baseLayer (layer-switch base)
-  spcnav (tap-hold 200 200 spc @nav)
+  nav         (layer-while-held nav)
+  spcnav      (tap-hold 200 200 spc @nav)
+  num         (layer-while-held numpad)
+  ncaps       (tap-hold 200 200 esc @num)
+
+  passLayer   (layer-switch pass-through)
+  baseLayer   (layer-switch base)
 
   a    (t! homerowmod a lmet)
   s    (t! homerowmod s lalt)
@@ -63,13 +59,12 @@
   j    (t! homerowmod j rsft)
   k    (t! homerowmod k rctl)
   l    (t! homerowmod l ralt)
-  scln (t! homerowmod scln rmet)
+  ;    (t! homerowmod scln rmet)
 )
 
 (defchordsv2
   (esc  1)   @baseLayer    $chord-timeout   all-released   ()
   (esc  2)   @passLayer    $chord-timeout   all-released   ()
-
 
   (esc          ralt)   lrld-prev   $chord-timeout    all-released    ()
   (esc   nonusbslash)   lrld        $chord-timeout    all-released    ()
@@ -86,22 +81,55 @@
   (m    ,)    @v-del     $chord-timeout    all-released    ()
 )
 
+(defsrc
+  esc    1      2      3      4      5      6      7      8      9      0      -      =      bspc
+  tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+  caps   a      s      d      f      g      h      j      k      l      ;      '      ent
+  lsft   z      x      c      v      b      n      m      ,      .      /      rsft   up
+  lctl   lmet   lalt                 spc                  ralt   fn     rctl   left   down   right
+)
+
 (deflayer base
-  esc
-  u    i    o    p
-  h    @j   @k   @l   @scln
-  @a   @s   @d   @f
-  @spcnav
+  esc    1      2      3      4      5      6      7      8      9      0      -      =      bspc
+  tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+  @ncaps @a     @s     @d     @f     g      h      @j     @k     @l     @;     '      ent
+  lsft   z      x      c      v      b      n      m      ,      .      /      rsft   up
+  lctl   lmet   lalt                 @spcnav              ralt   fn     rctl   left   down   right
 )
 
 (deflayer nav
-  XX
-  home pgup pgdn end
-  left down up   rght   _
-  _    _    _    _
-  XX
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      home   pgup   pgdn   end    _      _      _
+  esc    lmet   lalt   lctl   lsft   _      left   down   up     right  _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _                    XX                   _      _      _      _      _      _
+)
+
+(deflayer numpad
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      S-8    7      8      9      S-=    _      _      _
+  XX     _      _      _      _      _      /      4      5      6      -      _      _
+  _      _      _      _      _      _      0      1      2      3      .      _      _
+  _      _      _                    XX                   _      _      _      _      _      _
+)
+
+(deflayer function
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      S-8    f7     f8     f9     S-=    _      _      _
+  XX     _      _      _      _      _      /      f4     f5     f6     -      _      _
+  _      _      _      _      _      _      0      f1     f2     f3     .      _      _
+  _      _      _                    XX                   _      _      _      _      _      _
+)
+
+(deflayer base-transparent
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  esc    _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _                    XX                   _      _      _      _      _      _
 )
 
 (deflayermap pass-through
   CapsLock esc
 )
+
