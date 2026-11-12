@@ -46,8 +46,16 @@
 (defalias
   nav         (layer-while-held nav)
   spcnav      (tap-hold 200 200 spc @nav)
+
   num         (layer-while-held numpad)
-  ncaps       (tap-hold 200 200 esc @num)
+  fnl         (layer-while-held function)
+  ncaps       (tap-hold 0 200 esc
+              (switch
+                ((and (input-history real caps 2)
+                      (key-history esc 1)
+                      (key-timing 1 less-than 500)))
+                @fnl break
+                () @num break))
 
   passLayer   (layer-switch pass-through)
   baseLayer   (layer-switch base)
@@ -114,7 +122,7 @@
 )
 
 (deflayer function
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      f10    f11    f12    _      _      _      _
   _      _      _      _      _      _      S-8    f7     f8     f9     S-=    _      _      _
   XX     _      _      _      _      _      /      f4     f5     f6     -      _      _
   _      _      _      _      _      _      0      f1     f2     f3     .      _      _
