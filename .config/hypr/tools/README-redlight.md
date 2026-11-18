@@ -4,7 +4,7 @@ Monochrome-red display filter for Hyprland, applied via the
 `hyprland-ctm-control-v1` protocol as a 3×3 KMS plane CTM *below* the
 compositor framebuffer. Result: red-on-monitor only, invisible to
 screenshots (grim) and screencasts (OBS/PipeWire). Toggleable (keybind),
-scheduled 19:00→06:30, survives Hyprland restarts, works across all connected
+scheduled 19:30→06:10, survives Hyprland restarts, works across all connected
 monitors.
 
 This guide is the exact, working recipe from this machine, with the two bugs
@@ -365,8 +365,8 @@ case "${1:-toggle}" in
             systemctl --user start redlight.filter.service
           fi ;;
   auto)   h=$(date +%H%M)
-          # window is [19:00, 06:30); boundary semantics: 19:00 -> on, 06:30 -> off
-          if (( 10#$h >= 1900 )) || (( 10#$h < 630 )); then
+          # window is [19:30, 06:10); boundary semantics: 19:30 -> on, 06:10 -> off
+          if (( 10#$h >= 1930 )) || (( 10#$h < 610 )); then
             systemctl --user start redlight.filter.service
           else
             systemctl --user stop redlight.filter.service
@@ -385,8 +385,8 @@ chmod +x ~/.local/bin/redlightctl
 ```
 
 Notes:
-- `10#$h` forces base-10 on `date +%H%M` output (0630 would otherwise parse as
-  octal-ish); comparison literals are written without leading zeros (630, 1900).
+- `10#$h` forces base-10 on `date +%H%M` output (0610 would otherwise parse as
+  octal-ish); comparison literals are written without leading zeros (610, 1930).
 - `systemctl --user start` is idempotent, so `auto` is safe to run repeatedly.
 
 ## Step 7 — systemd units (plug in YOUR env values from Step 0)
@@ -417,11 +417,11 @@ RestartPreventExitStatus=2
 
 ```ini
 [Unit]
-Description=Red light filter schedule (on 19:00, off 06:30)
+Description=Red light filter schedule (on 19:30, off 06:10)
 
 [Timer]
-OnCalendar=*-*-* 06:30:00
-OnCalendar=*-*-* 19:00:00
+OnCalendar=*-*-* 06:10:00
+OnCalendar=*-*-* 19:30:00
 # No Persistent=true: a boot that happens during the day must not force the
 # filter on retroactively.
 
@@ -532,10 +532,10 @@ t0=$SECONDS; redlightctl off; echo "$((SECONDS-t0))s"; sleep 1; pgrep hypr-ctm-r
 **H. Schedule:**
 
 ```bash
-systemctl --user list-timers redlight.timer   # next elapse 19:00
+systemctl --user list-timers redlight.timer   # next elapse 19:30
 systemctl --user start redlight.service       # force-run the scheduler
 redlightctl status                            # matches the current time window
-# boundary logic: 0629->on, 0630->off, 1859->off, 1900->on, 1901->on
+# boundary logic: 0609->on, 0610->off, 1929->off, 1930->on, 1931->on
 ```
 
 **I. Crash resilience:**
@@ -565,7 +565,7 @@ path).
   `redlightctl toggle` or `systemctl --user restart redlight.filter.service`.
 - **Hardware capture device** recording the physical output will see red —
   expected and unavoidable.
-- **Manual override** persists until the next timer fire (06:30 or 19:00) —
+- **Manual override** persists until the next timer fire (06:10 or 19:30) —
   same behavior as the old hyprshade setup.
 
 ## Rollback
