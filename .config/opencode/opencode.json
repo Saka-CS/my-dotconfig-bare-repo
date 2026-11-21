@@ -11,7 +11,9 @@
           "-y",
           "@playwright/mcp@latest",
           "--headless",
-          "--isolated"
+          "--isolated",
+          "--browser",
+          "chromium"
         ]
       },
       "chrome-devtools": {

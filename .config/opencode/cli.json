@@ -17,6 +17,7 @@
   "animations": true,
   "tabs": {
     "enabled": true,
-    "scope": "cwd"
+    "scope": "cwd",
+    "indicators": "numbers"
   }
 }

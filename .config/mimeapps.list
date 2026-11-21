@@ -1,5 +1,5 @@
 [Default Applications]
-text/markdown=omawrite.desktop
+text/markdown=nvim.desktop
 text/x-markdown=nvim-term.desktop
 text/plain=nvim.desktop
 text/english=nvim.desktop
@@ -52,9 +52,11 @@ x-scheme-handler/postman=Postman.desktop
 application/zip=org.gnome.Nautilus.desktop
 image/svg+xml=imv-dir.desktop
 x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
+text/csv=libreoffice-calc.desktop
 
 [Added Associations]
 application/octet-stream=imv.desktop;
 application/zip=org.gnome.Nautilus.desktop;
 image/svg+xml=imv-dir.desktop;
-text/markdown=omawrite.desktop;
+text/markdown=omawrite.desktop;nvim.desktop;
+text/csv=libreoffice-calc.desktop;
